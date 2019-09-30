@@ -184,6 +184,10 @@ public class AddDataFragment extends BaseFragment
 
     private void handleDoneClicked() {
         Timber.i("Attempting save");
+        mEditItemName.clearFocus();
+        if (getActivity() != null) { // close keyboard
+            hideKeyboardFrom(getActivity(), mEditItemName);
+        }
         if (TextUtils.isEmpty(getItemName())) {
             Timber.i("Item name is empty");
             return;

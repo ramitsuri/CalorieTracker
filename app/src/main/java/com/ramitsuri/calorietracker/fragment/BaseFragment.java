@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,7 +39,7 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    void goUp(){
+    void goUp() {
         Activity activity = getActivity();
         if (activity != null) {
             ((AppCompatActivity)activity).onSupportNavigateUp();
@@ -125,5 +126,13 @@ public class BaseFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         Timber.i("%s OnDetach", this.getClass().getSimpleName());
+    }
+
+    public void hideKeyboardFrom(Context context, View view) {
+        InputMethodManager imm =
+                (InputMethodManager)context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 }
