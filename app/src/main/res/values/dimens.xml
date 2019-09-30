@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common -->
+    <dimen name="padding_extra_extra_small">4dp</dimen>
+    <dimen name="padding_extra_small">8dp</dimen>
+    <dimen name="padding_small">16dp</dimen>
+    <dimen name="padding_medium">24dp</dimen>
+    <dimen name="padding_large">32dp</dimen>
+    <dimen name="padding_extra_large">48dp</dimen>
+    <dimen name="padding_extra_extra_large">64dp</dimen>
+    <dimen name="margin_extra_extra_small">@dimen/padding_extra_extra_small</dimen>
+    <dimen name="margin_extra_small">@dimen/padding_extra_small</dimen>
+    <dimen name="margin_small">@dimen/padding_small</dimen>
+    <dimen name="margin_medium">@dimen/padding_medium</dimen>
+    <dimen name="margin_large">@dimen/padding_large</dimen>
+    <dimen name="margin_extra_large">@dimen/padding_extra_large</dimen>
+    <dimen name="margin_extra_extra_large">@dimen/padding_extra_extra_large</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+    <dimen name="text_large">20sp</dimen>
+    <dimen name="text_extra_extra_large">32sp</dimen>
+    <dimen name="text_extra_extra_extra_large">40sp</dimen>
+
+    <dimen name="bg_circle_size">32dp</dimen>
+    <dimen name="button_size_small">32dp</dimen>
+    <dimen name="button_size_medium">56dp</dimen>
+    <dimen name="button_size_large">80dp</dimen>
+    <dimen name="layout_pickers_height">56dp</dimen>
+    <dimen name="divider_width">2dp</dimen>
+    <dimen name="text_date_height">24dp</dimen>
+    <dimen name="card_date_radius">48dp</dimen>
+</resources>

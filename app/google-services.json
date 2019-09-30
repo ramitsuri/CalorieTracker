@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "684001729921",
+    "firebase_url": "https://calorietracker-b2be3.firebaseio.com",
+    "project_id": "calorietracker-b2be3",
+    "storage_bucket": "calorietracker-b2be3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684001729921:android:ee8b68c696c6450e1b9c80",
+        "android_client_info": {
+          "package_name": "com.ramitsuri.calorietracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684001729921-rnd53f90ilnqla8hcded2942ghc99pnk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFOm_1SzWFxtafAda_LkhLwNIJwCnfZYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684001729921-rnd53f90ilnqla8hcded2942ghc99pnk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

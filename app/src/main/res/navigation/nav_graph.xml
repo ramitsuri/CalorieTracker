@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation android:id="@+id/nav_graph"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/fragment_history">
+
+    <fragment
+        android:id="@+id/fragment_history"
+        android:name="com.ramitsuri.calorietracker.fragment.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history">
+
+        <action
+            android:id="@+id/nav_action_settings"
+            app:destination="@id/fragment_settings" />
+
+        <action
+            android:id="@+id/nav_action_add_data"
+            app:destination="@id/fragment_add_data" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.ramitsuri.calorietracker.fragment.SettingsFragment"
+        android:label="@string/settings">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_add_data"
+        android:name="com.ramitsuri.calorietracker.fragment.AddDataFragment"
+        tools:layout="@layout/fragment_add_data">
+
+    </fragment>
+</navigation>
