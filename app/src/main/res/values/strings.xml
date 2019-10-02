@@ -18,6 +18,8 @@
     <string name="settings_key_sheet_id">settings_sheet_id</string>
     <string name="settings_key_auto_backup">settings_auto_backup</string>
     <string name="settings_key_theme">settings_theme</string>
+    <string name="settings_key_account_name">settings_account_name</string>
+    <string name="settings_key_account_type">settings_account_type</string>
     <string name="settings_title_spreadsheet_id">Spreadsheet ID</string>
     <string name="settings_title_sheet_id">Current sheet ID</string>
     <string name="settings_title_auto_backup">Auto backup new expenses</string>

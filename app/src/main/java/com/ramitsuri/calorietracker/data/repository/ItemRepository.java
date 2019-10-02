@@ -49,4 +49,16 @@ public class ItemRepository {
             }
         });
     }
+
+    public LiveData<Boolean> setAll(final List<Item> items) {
+        final MutableLiveData<Boolean> success = new MutableLiveData<>();
+        mExecutors.diskIO().execute(new Runnable() {
+            @Override
+            public void run() {
+                List<Long> insertedItems = mDatabase.itemDao().setAll(items);
+                success.postValue(insertedItems.size() > 0);
+            }
+        });
+        return success;
+    }
 }

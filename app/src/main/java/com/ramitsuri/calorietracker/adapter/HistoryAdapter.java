@@ -33,7 +33,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         private void bind(final TrackedItemWrapper wrapper) {
             txtDate.setText(wrapper.getDate());
-            txtCalories.setText(String.valueOf(wrapper.getCalories()));
+            txtCalories.setText(String.format("%sCal", wrapper.getCalories()));
             txtBreakdown.setText(FormatHelper.getFormattedBreakdown(wrapper.getTrackedItems()));
         }
 

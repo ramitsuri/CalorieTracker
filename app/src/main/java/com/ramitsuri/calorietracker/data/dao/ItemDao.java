@@ -8,15 +8,22 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 @Dao
-public interface ItemDao {
+public abstract class ItemDao {
     @Query("SELECT * FROM Item")
-    LiveData<List<Item>> getAll();
+    public abstract LiveData<List<Item>> getAll();
+
+    @Transaction
+    public List<Long> setAll(List<Item> items) {
+        deleteAll();
+        return insertAll(items);
+    }
 
     @Insert
-    List<Long> insertAll(List<Item> items);
+    public abstract List<Long> insertAll(List<Item> items);
 
     @Query("DELETE FROM Item")
-    void deleteAll();
+    public abstract void deleteAll();
 }

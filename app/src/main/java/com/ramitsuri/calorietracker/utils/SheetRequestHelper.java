@@ -62,6 +62,11 @@ public class SheetRequestHelper {
             cellData = new CellData();
             cellData.setUserEnteredValue(new ExtendedValue()
                     .setNumberValue(trackedItem.getPortionSize().doubleValue()));
+            cellData.setDataValidation(new DataValidationRule()
+                    .setCondition(new BooleanCondition().setType("ONE_OF_LIST")
+                            .setValues(getPortionConditionValues()))
+                    .setStrict(true)
+                    .setShowCustomUi(true));
             cellDataList.add(cellData);
 
             rowData.setValues(cellDataList);
@@ -82,6 +87,59 @@ public class SheetRequestHelper {
             value.setUserEnteredValue(String.valueOf(i));
             conditionValues.add(value);
         }
+
+        return conditionValues;
+    }
+
+    private static ArrayList<ConditionValue> getPortionConditionValues() {
+        ArrayList<ConditionValue> conditionValues = new ArrayList<>();
+
+        ConditionValue value;
+
+        // 0.25
+        value = new ConditionValue();
+        value.setUserEnteredValue("0.25");
+        conditionValues.add(value);
+
+        // 0.33
+        value = new ConditionValue();
+        value.setUserEnteredValue("0.33");
+        conditionValues.add(value);
+
+        // 0.33
+        value = new ConditionValue();
+        value.setUserEnteredValue("0.50");
+        conditionValues.add(value);
+
+        // 0.75
+        value = new ConditionValue();
+        value.setUserEnteredValue("0.75");
+        conditionValues.add(value);
+
+        // 1.00
+        value = new ConditionValue();
+        value.setUserEnteredValue("1.00");
+        conditionValues.add(value);
+
+        // 1.50
+        value = new ConditionValue();
+        value.setUserEnteredValue("1.50");
+        conditionValues.add(value);
+
+        // 2.00
+        value = new ConditionValue();
+        value.setUserEnteredValue("2.00");
+        conditionValues.add(value);
+
+        // 3.00
+        value = new ConditionValue();
+        value.setUserEnteredValue("3.00");
+        conditionValues.add(value);
+
+        // 4.00
+        value = new ConditionValue();
+        value.setUserEnteredValue("4.00");
+        conditionValues.add(value);
 
         return conditionValues;
     }

@@ -31,13 +31,17 @@ public class TransformationHelper {
             }
 
             BigDecimal calories = BigDecimal.ZERO;
-            /*for (TrackedItem trackedItem : trackedItems) {
-                if(trackedItem)
-            }*/
+            for (TrackedItem trackedItem : trackedItems) {
+                if (trackedItem.getCalories() != null) {
+                    calories = calories.add(
+                            trackedItem.getCalories().multiply(trackedItem.getPortionSize()));
+                }
+            }
 
             TrackedItemWrapper wrapper = new TrackedItemWrapper();
             wrapper.setDate(DateHelper.getFriendlyDate(DateHelper.toDay(date)));
             wrapper.setTrackedItems(trackedItems);
+            wrapper.setCalories(calories);
             trackedItemWrappers.add(wrapper);
         }
         return trackedItemWrappers;

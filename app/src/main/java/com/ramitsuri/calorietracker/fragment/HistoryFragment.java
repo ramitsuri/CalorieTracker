@@ -114,11 +114,24 @@ public class HistoryFragment extends BaseFragment {
             };
 
     private void signIn() {
+        String accountName = PrefHelper.get(getString(R.string.settings_key_account_name), null);
+        String accountType = PrefHelper.get(getString(R.string.settings_key_account_type), null);
+        if (accountName != null && accountType != null) {
+            initiateBackup(accountName, accountType, false);
+            return;
+        }
+
         AccountManager accountManager = new AccountManager();
         SignInResponse response =
                 accountManager.prepareSignIn(MainApplication.getInstance(), Constants.SCOPES);
         if (response.getGoogleSignInAccount() != null) {
-            initiateBackup(response.getGoogleSignInAccount().getAccount(), false);
+            Account account = response.getGoogleSignInAccount().getAccount();
+            if (account != null) {
+                saveAccountDetailsIfNecessary(account);
+                initiateBackup(account.name, account.type, false);
+            } else {
+                Timber.w("SignIn() -> Account is null");
+            }
         } else if (response.getGoogleSignInIntent() != null) {
             // request account access
             startActivityForResult(response.getGoogleSignInIntent(),
@@ -126,7 +139,7 @@ public class HistoryFragment extends BaseFragment {
         }
     }
 
-    private void initiateBackup(Account account, boolean periodic) {
+    private void initiateBackup(String accountName, String accountType, boolean periodic) {
         Timber.i("Initiating backup");
         String workTag = Constants.TAG_SCHEDULED_BACKUP;
 
@@ -136,8 +149,8 @@ public class HistoryFragment extends BaseFragment {
         String sheetId = PrefHelper.get(getString(R.string.settings_key_sheet_id), null);
         Data.Builder builder = new Data.Builder();
         builder.putString(Constants.Work.APP_NAME, getString(R.string.app_name));
-        builder.putString(Constants.Work.ACCOUNT_NAME, account.name);
-        builder.putString(Constants.Work.ACCOUNT_TYPE, account.type);
+        builder.putString(Constants.Work.ACCOUNT_NAME, accountName);
+        builder.putString(Constants.Work.ACCOUNT_TYPE, accountType);
         builder.putString(Constants.Work.SPREADSHEET_ID, spreadsheetId);
         builder.putString(Constants.Work.SHEET_ID, sheetId);
         Constraints myConstraints = new Constraints.Builder()
@@ -188,10 +201,20 @@ public class HistoryFragment extends BaseFragment {
         if (requestCode == Constants.RequestCode.GOOGLE_SIGN_IN) {
             Account account = AccountManager.getSignInAccountFromIntent(data);
             if (account != null) {
-                initiateBackup(account, false);
+                saveAccountDetailsIfNecessary(account);
+                initiateBackup(account.name, account.type, false);
             } else {
                 Timber.i("Sign-in failed.");
             }
+        }
+    }
+
+    private void saveAccountDetailsIfNecessary(Account account) {
+        String accountName = PrefHelper.get(getString(R.string.settings_key_account_name), null);
+        String accountType = PrefHelper.get(getString(R.string.settings_key_account_type), null);
+        if (accountName == null && accountType == null) {
+            PrefHelper.set(getString(R.string.settings_key_account_name), account.name);
+            PrefHelper.set(getString(R.string.settings_key_account_type), account.type);
         }
     }
 }

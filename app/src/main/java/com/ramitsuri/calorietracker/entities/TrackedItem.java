@@ -24,6 +24,9 @@ public class TrackedItem {
     @ColumnInfo(name = "portion_size")
     private BigDecimal mPortionSize;
 
+    @ColumnInfo(name = "calories")
+    private BigDecimal mCalories;
+
     @ColumnInfo(name = "is_synced")
     private boolean mIsSynced;
 
@@ -57,6 +60,14 @@ public class TrackedItem {
 
     public void setDate(long date) {
         mDate = date;
+    }
+
+    public BigDecimal getCalories() {
+        return mCalories;
+    }
+
+    public void setCalories(BigDecimal calories) {
+        mCalories = calories;
     }
 
     public boolean isSynced() {

@@ -22,7 +22,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_portions"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -60,6 +60,16 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group_suggestions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:chipSpacing="@dimen/padding_extra_small"
+            app:layout_constraintEnd_toEndOf="@id/layout_item_name"
+            app:layout_constraintStart_toStartOf="@id/layout_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/layout_item_name"
+            app:singleSelection="true" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layout_item_name"

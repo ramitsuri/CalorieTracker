@@ -62,7 +62,7 @@ public class DummyData {
         return portions;
     }
 
-    public static List<Item> getItemNames() {
+    public static List<Item> getItems() {
         List<Item> items = new ArrayList<>();
         items.add(new Item("Dal Makhani", new BigDecimal("120.00")));//0
         items.add(new Item("Chicken Tikka Masala", new BigDecimal("100.00")));//1
@@ -86,35 +86,35 @@ public class DummyData {
         // Day 1
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[0]);
-        trackedItem.setItemName(getItemNames().get(0).getItemName());
+        trackedItem.setItemName(getItems().get(0).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[0]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(1));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[0]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[0]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[0]);
-        trackedItem.setItemName(getItemNames().get(9).getItemName());
+        trackedItem.setItemName(getItems().get(9).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -122,35 +122,35 @@ public class DummyData {
         // Day 2
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[1]);
-        trackedItem.setItemName(getItemNames().get(1).getItemName());
+        trackedItem.setItemName(getItems().get(1).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[1]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[1]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[1]);
-        trackedItem.setItemName(getItemNames().get(4).getItemName());
+        trackedItem.setItemName(getItems().get(4).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[1]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -158,35 +158,35 @@ public class DummyData {
         // Day 3
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[2]);
-        trackedItem.setItemName(getItemNames().get(6).getItemName());
+        trackedItem.setItemName(getItems().get(6).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[2]);
-        trackedItem.setItemName(getItemNames().get(7).getItemName());
+        trackedItem.setItemName(getItems().get(7).getItemName());
         trackedItem.setPortionSize(getPortions().get(1));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[2]);
-        trackedItem.setItemName(getItemNames().get(8).getItemName());
+        trackedItem.setItemName(getItems().get(8).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[2]);
-        trackedItem.setItemName(getItemNames().get(9).getItemName());
+        trackedItem.setItemName(getItems().get(9).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[2]);
-        trackedItem.setItemName(getItemNames().get(9).getItemName());
+        trackedItem.setItemName(getItems().get(9).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -194,35 +194,35 @@ public class DummyData {
         // Day 4
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[3]);
-        trackedItem.setItemName(getItemNames().get(8).getItemName());
+        trackedItem.setItemName(getItems().get(8).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[3]);
-        trackedItem.setItemName(getItemNames().get(7).getItemName());
+        trackedItem.setItemName(getItems().get(7).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[3]);
-        trackedItem.setItemName(getItemNames().get(6).getItemName());
+        trackedItem.setItemName(getItems().get(6).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[3]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[3]);
-        trackedItem.setItemName(getItemNames().get(4).getItemName());
+        trackedItem.setItemName(getItems().get(4).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -230,35 +230,35 @@ public class DummyData {
         // Day 5
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[4]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[4]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(1));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[4]);
-        trackedItem.setItemName(getItemNames().get(1).getItemName());
+        trackedItem.setItemName(getItems().get(1).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[4]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[4]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -266,35 +266,35 @@ public class DummyData {
         // Day 6
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[5]);
-        trackedItem.setItemName(getItemNames().get(4).getItemName());
+        trackedItem.setItemName(getItems().get(4).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[5]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[5]);
-        trackedItem.setItemName(getItemNames().get(9).getItemName());
+        trackedItem.setItemName(getItems().get(9).getItemName());
         trackedItem.setPortionSize(getPortions().get(1));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[5]);
-        trackedItem.setItemName(getItemNames().get(8).getItemName());
+        trackedItem.setItemName(getItems().get(8).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[5]);
-        trackedItem.setItemName(getItemNames().get(7).getItemName());
+        trackedItem.setItemName(getItems().get(7).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -302,35 +302,35 @@ public class DummyData {
         // Day 7
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[6]);
-        trackedItem.setItemName(getItemNames().get(6).getItemName());
+        trackedItem.setItemName(getItems().get(6).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[6]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[6]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[6]);
-        trackedItem.setItemName(getItemNames().get(7).getItemName());
+        trackedItem.setItemName(getItems().get(7).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[6]);
-        trackedItem.setItemName(getItemNames().get(4).getItemName());
+        trackedItem.setItemName(getItems().get(4).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -338,35 +338,35 @@ public class DummyData {
         // Day 8
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[7]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(1));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[7]);
-        trackedItem.setItemName(getItemNames().get(1).getItemName());
+        trackedItem.setItemName(getItems().get(1).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[7]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[7]);
-        trackedItem.setItemName(getItemNames().get(4).getItemName());
+        trackedItem.setItemName(getItems().get(4).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[7]);
-        trackedItem.setItemName(getItemNames().get(3).getItemName());
+        trackedItem.setItemName(getItems().get(3).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -374,35 +374,35 @@ public class DummyData {
         // Day 9
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[8]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(4));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[8]);
-        trackedItem.setItemName(getItemNames().get(1).getItemName());
+        trackedItem.setItemName(getItems().get(1).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[8]);
-        trackedItem.setItemName(getItemNames().get(4).getItemName());
+        trackedItem.setItemName(getItems().get(4).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[8]);
-        trackedItem.setItemName(getItemNames().get(9).getItemName());
+        trackedItem.setItemName(getItems().get(9).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[8]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(2));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
@@ -410,35 +410,35 @@ public class DummyData {
         // Day 10
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[9]);
-        trackedItem.setItemName(getItemNames().get(2).getItemName());
+        trackedItem.setItemName(getItems().get(2).getItemName());
         trackedItem.setPortionSize(getPortions().get(6));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[9]);
-        trackedItem.setItemName(getItemNames().get(6).getItemName());
+        trackedItem.setItemName(getItems().get(6).getItemName());
         trackedItem.setPortionSize(getPortions().get(1));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[9]);
-        trackedItem.setItemName(getItemNames().get(1).getItemName());
+        trackedItem.setItemName(getItems().get(1).getItemName());
         trackedItem.setPortionSize(getPortions().get(7));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[9]);
-        trackedItem.setItemName(getItemNames().get(7).getItemName());
+        trackedItem.setItemName(getItems().get(7).getItemName());
         trackedItem.setPortionSize(getPortions().get(5));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);
 
         trackedItem = new TrackedItem();
           trackedItem.setDate(getDates()[9]);
-        trackedItem.setItemName(getItemNames().get(5).getItemName());
+        trackedItem.setItemName(getItems().get(5).getItemName());
         trackedItem.setPortionSize(getPortions().get(3));
         trackedItem.setIsSynced(false);
         trackedItems.add(trackedItem);

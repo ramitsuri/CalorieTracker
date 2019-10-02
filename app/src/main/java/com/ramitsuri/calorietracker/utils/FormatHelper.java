@@ -10,8 +10,8 @@ public class FormatHelper {
         for (int i = 0; i < trackedItems.size(); i++) {
             TrackedItem trackedItem = trackedItems.get(i);
             sb.append(trackedItem.getItemName())
-                    .append(" (")
-                    .append(trackedItem.getPortionSize())
+                    .append(" (x")
+                    .append(trackedItem.getPortionSize().stripTrailingZeros())
                     .append(")");
             if (i != trackedItems.size() - 1) {
                 sb.append(", ");

@@ -63,13 +63,12 @@ public class SheetRepository {
      * <p>
      * EX: "Entities!A1:J20"
      */
-    public LiveData<EntitiesConsumerResponse> getEntityData() {
+    public LiveData<EntitiesConsumerResponse> getEntityData(final String range) {
         final MutableLiveData<EntitiesConsumerResponse> responseLiveData =
                 new MutableLiveData<>();
         mExecutors.networkIO().execute(new Runnable() {
             @Override
             public void run() {
-                String range = "Entities!A1:J20";
                 EntitiesConsumerResponse response = getEntityDataResponse(range);
                 responseLiveData.postValue(response);
             }
@@ -83,13 +82,12 @@ public class SheetRepository {
      * <p>
      * EX: "Aug19!A19:F"
      */
-    public LiveData<RangeConsumerResponse> getRangeData() {
+    public LiveData<RangeConsumerResponse> getRangeData(final String range) {
         final MutableLiveData<RangeConsumerResponse> responseLiveData =
                 new MutableLiveData<>();
         mExecutors.networkIO().execute(new Runnable() {
             @Override
             public void run() {
-                String range = "Aug19!A19:F";
                 RangeConsumerResponse response = getRangeDataResponse(range);
                 responseLiveData.postValue(response);
             }
@@ -103,7 +101,8 @@ public class SheetRepository {
      * <p>
      * EX: "Aug19!A19:F"
      */
-    public LiveData<InsertConsumerResponse> insertRange(@NonNull final List<TrackedItem> trackedItems,
+    public LiveData<InsertConsumerResponse> insertRange(
+            @NonNull final List<TrackedItem> trackedItems,
             @NonNull final String sheetId) {
         final MutableLiveData<InsertConsumerResponse> responseLiveData =
                 new MutableLiveData<>();
