@@ -15,6 +15,9 @@ public abstract class ItemDao {
     @Query("SELECT * FROM Item")
     public abstract LiveData<List<Item>> getAll();
 
+    @Query("SELECT * FROM Item")
+    public abstract List<Item> getAllNonLive();
+
     @Transaction
     public List<Long> setAll(List<Item> items) {
         deleteAll();

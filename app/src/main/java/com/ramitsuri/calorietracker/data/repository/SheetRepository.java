@@ -6,6 +6,7 @@ import android.content.Context;
 import com.google.api.services.sheets.v4.model.BatchUpdateSpreadsheetRequest;
 import com.google.api.services.sheets.v4.model.Sheet;
 import com.ramitsuri.calorietracker.AppExecutors;
+import com.ramitsuri.calorietracker.entities.Item;
 import com.ramitsuri.calorietracker.entities.TrackedItem;
 import com.ramitsuri.sheetscore.SheetsProcessor;
 import com.ramitsuri.sheetscore.consumerResponse.EntitiesConsumerResponse;
@@ -22,6 +23,8 @@ import com.ramitsuri.calorietracker.utils.SheetRequestHelper;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Nonnull;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
@@ -103,13 +106,15 @@ public class SheetRepository {
      */
     public LiveData<InsertConsumerResponse> insertRange(
             @NonNull final List<TrackedItem> trackedItems,
+            @NonNull final List<Item> items,
             @NonNull final String sheetId) {
         final MutableLiveData<InsertConsumerResponse> responseLiveData =
                 new MutableLiveData<>();
         mExecutors.networkIO().execute(new Runnable() {
             @Override
             public void run() {
-                InsertConsumerResponse response = getInsertRangeResponse(trackedItems, sheetId);
+                InsertConsumerResponse response =
+                        getInsertRangeResponse(trackedItems, items, sheetId);
                 responseLiveData.postValue(response);
             }
         });
@@ -210,11 +215,12 @@ public class SheetRepository {
     }
 
     public InsertConsumerResponse getInsertRangeResponse(@NonNull List<TrackedItem> trackedItems,
+            @NonNull List<Item> items,
             @NonNull String sheetId) {
         InsertConsumerResponse consumerResponse = new InsertConsumerResponse();
         try {
             BatchUpdateSpreadsheetRequest requestBody =
-                    SheetRequestHelper.getUpdateRequestBody(trackedItems, sheetId);
+                    SheetRequestHelper.getUpdateRequestBody(trackedItems, items, sheetId);
             if (requestBody != null) {
                 mSheetsProcessor.updateSheet(requestBody);
                 consumerResponse.setSuccessful(true);

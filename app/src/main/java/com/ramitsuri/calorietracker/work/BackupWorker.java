@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.ramitsuri.calorietracker.MainApplication;
 import com.ramitsuri.calorietracker.constants.Constants;
 import com.ramitsuri.calorietracker.data.CalorieTrackerDatabase;
+import com.ramitsuri.calorietracker.entities.Item;
 import com.ramitsuri.calorietracker.entities.TrackedItem;
 import com.ramitsuri.sheetscore.consumerResponse.InsertConsumerResponse;
 
@@ -36,7 +37,9 @@ public class BackupWorker extends Worker {
 
         if (appName == null || TextUtils.isEmpty(spreadsheetId) || TextUtils.isEmpty(sheetId) ||
                 TextUtils.isEmpty(accountName) || TextUtils.isEmpty(accountType)) {
-            Timber.i("App Name - %s / Spreadsheet Id - %s / Sheet Id - %s / Account Name - %s / Account Type - %s null or empty", appName, spreadsheetId, sheetId,
+            Timber.i(
+                    "App Name - %s / Spreadsheet Id - %s / Sheet Id - %s / Account Name - %s / Account Type - %s null or empty",
+                    appName, spreadsheetId, sheetId,
                     accountName, accountType);
             return Result.failure();
         }
@@ -49,16 +52,18 @@ public class BackupWorker extends Worker {
                     .initSheetRepo(account, spreadsheetId, Arrays.asList(Constants.SCOPES));
         }
 
-        List<TrackedItem> questionsToBackup =
+        List<TrackedItem> trackedItemsToBackup =
                 CalorieTrackerDatabase.getInstance().trackedItemDao().getAllUnsynced();
 
-        if (questionsToBackup == null) {
+        List<Item> items = CalorieTrackerDatabase.getInstance().itemDao().getAllNonLive();
+
+        if (trackedItemsToBackup == null) {
             Timber.i("Questions to backup is null");
             return Result.failure();
         }
 
         InsertConsumerResponse response = MainApplication.getInstance().getSheetRepository()
-                .getInsertRangeResponse(questionsToBackup, sheetId);
+                .getInsertRangeResponse(trackedItemsToBackup, items, sheetId);
         if (response.isSuccessful()) {
             MainApplication.getInstance().getTrackedItemRepository().deleteAll();
             return Result.success();

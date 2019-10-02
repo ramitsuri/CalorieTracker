@@ -9,6 +9,7 @@ import com.google.api.services.sheets.v4.model.DataValidationRule;
 import com.google.api.services.sheets.v4.model.ExtendedValue;
 import com.google.api.services.sheets.v4.model.Request;
 import com.google.api.services.sheets.v4.model.RowData;
+import com.ramitsuri.calorietracker.entities.Item;
 import com.ramitsuri.calorietracker.entities.TrackedItem;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import timber.log.Timber;
 public class SheetRequestHelper {
 
     public static BatchUpdateSpreadsheetRequest getUpdateRequestBody(
-            List<TrackedItem> trackedItemList,
+            List<TrackedItem> trackedItemList, List<Item> items,
             String sheetId) {
         BatchUpdateSpreadsheetRequest requestBody = new BatchUpdateSpreadsheetRequest();
         List<Request> requests = new ArrayList<>();
@@ -56,6 +57,11 @@ public class SheetRequestHelper {
             cellData = new CellData();
             cellData.setUserEnteredValue(
                     new ExtendedValue().setStringValue(trackedItem.getItemName()));
+            cellData.setDataValidation(new DataValidationRule()
+                    .setCondition(new BooleanCondition().setType("ONE_OF_LIST")
+                            .setValues(getItemNameConditionValues(items)))
+                    .setStrict(true)
+                    .setShowCustomUi(true));
             cellDataList.add(cellData);
 
             // Portion
@@ -77,6 +83,18 @@ public class SheetRequestHelper {
         requests.add(request);
         requestBody.setRequests(requests);
         return requestBody;
+    }
+
+    private static List<ConditionValue> getItemNameConditionValues(List<Item> items) {
+        ArrayList<ConditionValue> conditionValues = new ArrayList<>();
+
+        for (Item item : items) {
+            ConditionValue value = new ConditionValue();
+            value.setUserEnteredValue(item.getItemName());
+            conditionValues.add(value);
+        }
+
+        return conditionValues;
     }
 
     private static ArrayList<ConditionValue> getDayConditionValues() {
