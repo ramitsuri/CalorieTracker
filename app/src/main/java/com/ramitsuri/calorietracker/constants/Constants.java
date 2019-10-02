@@ -7,6 +7,7 @@ public class Constants {
     public static final String[] SCOPES = {SheetsScopes.SPREADSHEETS, SheetsScopes.DRIVE};
     public static final String TAG_ONE_TIME_BACKUP = "one_time_backup";
     public static final String TAG_SCHEDULED_BACKUP = "scheduled_backup";
+    public static final String TAG_NOTIFY_WORKED = "notify_worker";
 
     public class RequestCode {
         public static final int GOOGLE_SIGN_IN = 100;

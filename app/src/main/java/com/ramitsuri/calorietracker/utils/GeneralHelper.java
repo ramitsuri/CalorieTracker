@@ -4,7 +4,7 @@ import com.ramitsuri.calorietracker.entities.TrackedItem;
 
 import java.util.List;
 
-public class FormatHelper {
+public class GeneralHelper {
     public static String getFormattedBreakdown(List<TrackedItem> trackedItems) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < trackedItems.size(); i++) {

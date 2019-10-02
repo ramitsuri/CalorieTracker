@@ -14,6 +14,7 @@ import com.ramitsuri.calorietracker.R;
 import com.ramitsuri.calorietracker.adapter.HistoryAdapter;
 import com.ramitsuri.calorietracker.constants.Constants;
 import com.ramitsuri.calorietracker.entities.TrackedItemWrapper;
+import com.ramitsuri.calorietracker.notification.NotificationWorker;
 import com.ramitsuri.calorietracker.utils.PrefHelper;
 import com.ramitsuri.calorietracker.viewModel.HistoryViewModel;
 import com.ramitsuri.calorietracker.work.BackupWorker;
@@ -65,11 +66,30 @@ public class HistoryFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button btnBackup = view.findViewById(R.id.btn_backup);
+        final Button btnBackup = view.findViewById(R.id.btn_backup);
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signIn();
+            }
+        });
+        btnBackup.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (v == btnBackup) {
+                    boolean isNotifyEnabled =
+                            PrefHelper.get(getString(R.string.settings_key_notify), false);
+                    if (isNotifyEnabled) {
+                        Timber.i("Notify worker enabled, disabling");
+                        cancelNotifyWorker();
+                        PrefHelper.set(getString(R.string.settings_key_notify), false);
+                    } else {
+                        Timber.i("Notify worker disabled, enabling");
+                        scheduleNotifyWorker();
+                        PrefHelper.set(getString(R.string.settings_key_notify), true);
+                    }
+                }
+                return false;
             }
         });
 
@@ -85,6 +105,17 @@ public class HistoryFragment extends BaseFragment {
         setupList(view);
         String workTag = Constants.TAG_SCHEDULED_BACKUP;
         logWorkStatus(workTag);
+
+        scheduleNotification();
+        logWorkStatus(Constants.TAG_NOTIFY_WORKED);
+    }
+
+    private void scheduleNotifyWorker() {
+
+    }
+
+    private void cancelNotifyWorker() {
+
     }
 
     private void setupList(View view) {
@@ -181,6 +212,27 @@ public class HistoryFragment extends BaseFragment {
 
         // Status
         logWorkStatus(workTag);
+    }
+
+    private void scheduleNotification() {
+        String workTag = Constants.TAG_NOTIFY_WORKED;
+
+        Constraints myConstraints = new Constraints.Builder()
+                .setRequiresCharging(false)
+                .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+                .build();
+
+        // Request
+        PeriodicWorkRequest.Builder periodicWorkRequestBuilder =
+                new PeriodicWorkRequest.Builder(NotificationWorker.class, 15, TimeUnit.MINUTES)
+                        .setConstraints(myConstraints)
+                        .addTag(workTag);
+        PeriodicWorkRequest request = periodicWorkRequestBuilder.build();
+
+        // Enqueue
+        WorkManager.getInstance(MainApplication.getInstance())
+                .enqueueUniquePeriodicWork(workTag,
+                        ExistingPeriodicWorkPolicy.KEEP, request);
     }
 
     private void logWorkStatus(String workTag) {

@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.ramitsuri.calorietracker.R;
 import com.ramitsuri.calorietracker.entities.TrackedItemWrapper;
-import com.ramitsuri.calorietracker.utils.FormatHelper;
+import com.ramitsuri.calorietracker.utils.GeneralHelper;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         private void bind(final TrackedItemWrapper wrapper) {
             txtDate.setText(wrapper.getDate());
             txtCalories.setText(String.format("%sCal", wrapper.getCalories()));
-            txtBreakdown.setText(FormatHelper.getFormattedBreakdown(wrapper.getTrackedItems()));
+            txtBreakdown.setText(GeneralHelper.getFormattedBreakdown(wrapper.getTrackedItems()));
         }
 
         @Override

@@ -24,4 +24,26 @@
         <item>4.00</item>
     </string-array>
 
+    <string-array name="notification_texts">
+        <item>Hey Jessssss. Miss you. Hope you have a great day today</item>
+        <item>Hey Jeez. What\'s up? All good at my end. Have fun.</item>
+        <item>Hey JDLT. Just wanted to say that I love you.</item>
+        <item>Hey Jus</item>
+        <item>Hey Jassi. How are? Sending virtual hug</item>
+        <item>Hey Jas</item>
+        <item>Hey Jess. Is it too hot? It is here. </item>
+        <item>Hey Jessica</item>
+        <item>Hey Hessica. :* :*</item>
+        <item>Hey JJ</item>
+        <item>Hey Shona. Miss you.</item>
+        <item>Hey Jaz</item>
+        <item>Hey JayZ. :* :*</item>
+        <item>Hey Alba. Can\'t wait to see you soon.</item>
+        <item>Hey Jessi. Hugssss</item>
+        <item>Hey J.</item>
+        <item>Hey Jose. :* :*</item>
+        <item>Hey Jay. Hope dogs are okay.</item>
+        <item>Hey Jojo. Have a great day today.</item>
+    </string-array>
+
 </resources>

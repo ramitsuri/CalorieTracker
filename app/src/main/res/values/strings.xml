@@ -20,6 +20,8 @@
     <string name="settings_key_theme">settings_theme</string>
     <string name="settings_key_account_name">settings_account_name</string>
     <string name="settings_key_account_type">settings_account_type</string>
+    <string name="settings_key_notify">settings_notify</string>
+    <string name="settings_key_notify_index">settings_notify_index</string>
     <string name="settings_title_spreadsheet_id">Spreadsheet ID</string>
     <string name="settings_title_sheet_id">Current sheet ID</string>
     <string name="settings_title_auto_backup">Auto backup new expenses</string>
