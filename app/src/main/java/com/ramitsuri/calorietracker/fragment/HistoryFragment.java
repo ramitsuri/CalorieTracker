@@ -224,7 +224,7 @@ public class HistoryFragment extends BaseFragment {
 
         // Request
         PeriodicWorkRequest.Builder periodicWorkRequestBuilder =
-                new PeriodicWorkRequest.Builder(NotificationWorker.class, 15, TimeUnit.MINUTES)
+                new PeriodicWorkRequest.Builder(NotificationWorker.class, 1, TimeUnit.DAYS)
                         .setConstraints(myConstraints)
                         .addTag(workTag);
         PeriodicWorkRequest request = periodicWorkRequestBuilder.build();
