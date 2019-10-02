@@ -34,9 +34,13 @@ public class NotificationWorker extends Worker {
     private void triggerNotification() {
         int lastIndex =
                 PrefHelper.get(getResources().getString(R.string.settings_key_notify_index), -1);
+        lastIndex = lastIndex + 1;
+        if (lastIndex > 18) {
+            return;
+        }
         String[] texts = getResources().getStringArray(R.array.notification_texts);
-        String text = texts[lastIndex + 1];
-        PrefHelper.set(getResources().getString(R.string.settings_key_notify_index), lastIndex + 1);
+        String text = texts[lastIndex];
+        PrefHelper.set(getResources().getString(R.string.settings_key_notify_index), lastIndex);
 
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(MainApplication.getInstance(), "channel_general")
