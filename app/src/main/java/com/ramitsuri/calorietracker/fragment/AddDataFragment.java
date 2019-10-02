@@ -135,6 +135,17 @@ public class AddDataFragment extends BaseFragment
         int month = DateHelper.getMonthFromDate(localDate);
         int day = DateHelper.getDayFromDate(localDate);
         onDatePicked(year, month, day);
+
+        initiateGetItems();
+    }
+
+    private void initiateGetItems() {
+        mViewModel.getItemsLiveData().observe(getViewLifecycleOwner(), new Observer<List<Item>>() {
+            @Override
+            public void onChanged(List<Item> items) {
+                mViewModel.setItems(items);
+            }
+        });
     }
 
     private void onItemNameChanged(Editable s) {
@@ -149,7 +160,7 @@ public class AddDataFragment extends BaseFragment
         }
         mGroupSuggestions.removeAllViews();
         for (Item item : mViewModel.getItems()) {
-            if (!item.getItemName().startsWith(s.toString())) {
+            if (!item.getItemName().toLowerCase().contains(s.toString().toLowerCase())) {
                 continue;
             }
             Chip suggestion = (Chip)this.getLayoutInflater()
@@ -211,6 +222,9 @@ public class AddDataFragment extends BaseFragment
         Activity activity = getActivity();
         if (activity != null) {
             ((AppCompatActivity)activity).onSupportNavigateUp();
+            mEditItemName.clearFocus();
+            // close keyboard
+            hideKeyboardFrom(getActivity(), mEditItemName);
         } else {
             Timber.i("handleCloseFragmentClicked() -> Activity is null");
         }
@@ -246,6 +260,10 @@ public class AddDataFragment extends BaseFragment
 
     private void handleDoneClicked() {
         Timber.i("Attempting save");
+        if (TextUtils.isEmpty(getItemName())) {
+            Timber.i("Item name is empty");
+            return;
+        }
         setEditItemName(getItemName());
         LiveData<Boolean> success = mViewModel.insertTrackedItem();
         success.observe(getViewLifecycleOwner(), new Observer<Boolean>() {
@@ -268,10 +286,6 @@ public class AddDataFragment extends BaseFragment
         mEditItemName.clearFocus();
         if (getActivity() != null) { // close keyboard
             hideKeyboardFrom(getActivity(), mEditItemName);
-        }
-        if (TextUtils.isEmpty(getItemName())) {
-            Timber.i("Item name is empty");
-            return;
         }
         mViewModel.setItemName(itemName);
     }

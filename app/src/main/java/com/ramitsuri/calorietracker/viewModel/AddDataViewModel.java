@@ -4,7 +4,6 @@ import android.accounts.Account;
 
 import com.ramitsuri.calorietracker.MainApplication;
 import com.ramitsuri.calorietracker.R;
-import com.ramitsuri.calorietracker.data.DummyData;
 import com.ramitsuri.calorietracker.data.repository.ItemRepository;
 import com.ramitsuri.calorietracker.data.repository.SheetRepository;
 import com.ramitsuri.calorietracker.data.repository.TrackedItemRepository;
@@ -28,6 +27,7 @@ import timber.log.Timber;
 
 public class AddDataViewModel extends ViewModel {
     private TrackedItemRepository mTrackedItemRepository;
+    private ItemRepository mItemRepository;
 
     @Nullable
     private List<Item> mItems;
@@ -41,7 +41,7 @@ public class AddDataViewModel extends ViewModel {
 
         MainApplication.getInstance().initDataRepos();
         mTrackedItemRepository = MainApplication.getInstance().getTrackedItemRepository();
-
+        mItemRepository = MainApplication.getInstance().getItemRepository();
         reset();
     }
 
@@ -109,8 +109,7 @@ public class AddDataViewModel extends ViewModel {
     }
 
     public LiveData<Boolean> saveSheetItems(@Nonnull List<List<Object>> objectsList) {
-        ItemRepository itemRepository = MainApplication.getInstance().getItemRepository();
-        if (itemRepository != null) {
+        if (mItemRepository != null) {
             List<Item> items = new ArrayList<>();
             for (List<Object> objects : objectsList) {
                 if (objects.size() != 2) {
@@ -126,7 +125,7 @@ public class AddDataViewModel extends ViewModel {
             }
 
             mItems = items;
-            return itemRepository.setAll(items);
+            return mItemRepository.setAll(items);
         }
         return null;
     }
@@ -134,5 +133,13 @@ public class AddDataViewModel extends ViewModel {
     @Nullable
     public List<Item> getItems() {
         return mItems;
+    }
+
+    public void setItems(@Nullable List<Item> items) {
+        mItems = items;
+    }
+
+    public LiveData<List<Item>> getItemsLiveData() {
+        return mItemRepository.getItems();
     }
 }
