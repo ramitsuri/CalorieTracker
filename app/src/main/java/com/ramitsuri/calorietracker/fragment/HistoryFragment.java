@@ -106,7 +106,7 @@ public class HistoryFragment extends BaseFragment {
         String workTag = Constants.TAG_SCHEDULED_BACKUP;
         logWorkStatus(workTag);
 
-        scheduleNotification();
+        //scheduleNotification();
         logWorkStatus(Constants.TAG_NOTIFY_WORKED);
     }
 
